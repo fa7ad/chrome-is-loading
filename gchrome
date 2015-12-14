@@ -1,7 +1,8 @@
 #!/bin/bash
+flags="$@"
 zenity --progress --text="Chrome is loading" --pulsate --no-cancel --title="Google Chrome" &
 zen=$!
-/usr/bin/google-chrome &
+/usr/bin/google-chrome "$@" &
 until pid=$(pidof chrome); do
   echo -n "."
 done
